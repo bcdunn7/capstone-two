@@ -1,0 +1,44 @@
+users
+-
+id SERIAL PK
+username VARCHAR(128) UNIQUE
+password TEXT
+first_name VARCHAR(128)
+last_name VARCHAR(128)
+email VARCHAR(128)
+phone VARCHAR(64)
+isAdmin BOOLEAN default=false
+
+sets
+-
+id SERIAL PK
+name VARCHAR(128)
+image_url TEXT
+
+instruments
+-
+id SERIAL PK
+name VARCHAR(128)
+set_id INT FK >- sets.id
+quantity INT
+image_url TEXT
+
+tags
+-
+id SERIAL PK
+tag VARCHAR(28) UNIQUE
+
+set_tags
+-
+set_id INT PK FK >- sets.id
+tag_id INT PK FK >- tags.id
+ 
+reservations
+-
+id SERIAL PK
+user_id INT FK >- users.id
+instrument_id INT FK >- instruments.id
+quantity INT
+start_time TIMESTAMP
+end_time TIMESTAMP
+notes TEXT NULL
