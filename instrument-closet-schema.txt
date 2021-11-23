@@ -7,7 +7,7 @@ first_name VARCHAR(128)
 last_name VARCHAR(128)
 email VARCHAR(128)
 phone VARCHAR(64)
-isAdmin BOOLEAN default=false
+is_admin BOOLEAN default=false
 
 instruments
 -
@@ -17,7 +17,7 @@ quantity INT
 description TEXT
 image_url TEXT
 
-category
+categories
 -
 id SERIAL PK
 category VARCHAR(128) UNIQUE
@@ -25,7 +25,7 @@ category VARCHAR(128) UNIQUE
 instrument_category
 -
 instrument_id INT PK FK >- instruments.id
-category_id INT PK FK >- category.id
+category_id INT PK FK >- categories.id
  
 reservations
 -
