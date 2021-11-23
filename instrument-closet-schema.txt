@@ -9,29 +9,23 @@ email VARCHAR(128)
 phone VARCHAR(64)
 isAdmin BOOLEAN default=false
 
-sets
--
-id SERIAL PK
-name VARCHAR(128)
-image_url TEXT
-
 instruments
 -
 id SERIAL PK
 name VARCHAR(128)
-set_id INT FK >- sets.id
 quantity INT
+description TEXT
 image_url TEXT
 
-tags
+category
 -
 id SERIAL PK
-tag VARCHAR(28) UNIQUE
+category VARCHAR(128) UNIQUE
 
-set_tags
+instrument_category
 -
-set_id INT PK FK >- sets.id
-tag_id INT PK FK >- tags.id
+instrument_id INT PK FK >- instruments.id
+category_id INT PK FK >- category.id
  
 reservations
 -
